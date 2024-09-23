@@ -1,7 +1,14 @@
+version: 3.8
+
 services:
-  web:
-    build:
+  nginx:
+    container_name: nginx
+    build: requirements/nginx
     ports:
-      - "5000:5000"
+      - "80:80"
     volumes:
-      
+      - ./requirements/wordpress:/var/www/html
+    networks:
+      - inception_network
+    depends_on:
+      - wordpress
