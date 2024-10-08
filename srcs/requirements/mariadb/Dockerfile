@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update
+RUN apt-get update && apt upgrade && apt install -y mariadb
 
 ADD . /Inception/srcs/requirements/mariadb/
 WORKDIR /mariadb

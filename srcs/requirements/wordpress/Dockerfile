@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && worpress install
+RUN apt-get update && apt upgrade && apt install -y wordpress
 
 ADD . /Inception/srcs/requirements/wordpress/
 WORKDIR /wordpress
