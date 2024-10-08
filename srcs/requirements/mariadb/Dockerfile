@@ -1,13 +1,10 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt upgrade && apt install -y mariadb
+RUN	apt-get update && \
+	apt-get install -y mariadb-server && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/*
 
-ADD . /Inception/srcs/requirements/mariadb/
-WORKDIR /mariadb
-RUN npm install
+COPY ./conf/script.sh .
 
-#exemple
-EXPOSE 2368
-VOLUME /mariadb
-
-CMD npm run start
+CMD ./script.sh
