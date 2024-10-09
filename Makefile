@@ -1,29 +1,46 @@
-COMPOSE_FILE=srcs/docker-compose.yml
+.DEFAULT_GOAL = all
 
+P_DATA = /home/ozasahin/data/wordpress
+DB_DATA = /home/ozasahin/data/mariadb
+DOCKER_COMPOSE = docker-compose -f srcs/docker-compose.yml
+
+all: build up
 
 build:
-	docker-compose -f $(COMPOSE_FILE) build
+	$(DOCKER_COMPOSE) build
 
-up:
-	docker-compose -f $(COMPOSE_FILE) up -d
+up: build
+	@mkdir -p $(WP_DATA)
+	@mkdir -p $(DB_DATA)
+	$(DOCKER_COMPOSE) up -d
 
 down:
-	docker-compose -f $(COMPOSE_FILE) down
+	$(DOCKER_COMPOSE) down
+
+start:
+	$(DOCKER_COMPOSE) start
+
+stop:
+	$(DOCKER_COMPOSE) stop
 
 logs:
-	docker-compose -f $(COMPOSE_FILE) logs -f
+	$(DOCKER_COMPOSE) logs -f
 
 restart:
-	docker-compose -f $(COMPOSE_FILE) down
-	docker-compose -f $(COMPOSE_FILE) up -d
+	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) up -d
 
 clean:
-	docker-compose -f $(COMPOSE_FILE) down -v
+	@docker stop $$(docker ps -qa) || true
+	@docker rm $$(docker ps -qa) || true
+	@docker rmi -f $$(docker images -qa) || true
+	@rm -rf $(WP_DATA) || true
+	@rm -rf $(DB_DATA) || true
 
 status:
-	docker-compose -f $(COMPOSE_FILE) ps
+	$(DOCKER_COMPOSE) ps
 
-.PHONY: clean status restart logs down up build
+.PHONY: all build up down start logs restart clean status
 
 
 
