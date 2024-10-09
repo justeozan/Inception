@@ -1,73 +1,73 @@
 # Inception 🚀💤
 
-Bienvenue dans **Inception**! Ce projet est une exploration fascinante de la manipulation des rêves et des réalités. Préparez-vous à plonger dans un monde de rêves imbriqués! 🌌✨
+Welcome to **Inception**! This project is a fascinating exploration of dream manipulation and realities. Get ready to dive into a world of nested dreams! 🌌✨
 
-## 📚 Table des matières
+## 📚 Table of Contents
 
 - [Description](#description)
-- [Fonctionnalités](#fonctionnalités)
+- [Features](#features)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## 📖 Description
 
-**Inception** est un projet qui permet aux utilisateurs de plonger dans des rêves complexes, d'explorer des paysages oniriques et de résoudre des énigmes. C'est une expérience immersive qui défie les lois de la logique et de la physique. 🌀💭
+**Inception** is a project that allows users to dive into complex dreams, explore dreamlike landscapes, and solve puzzles. It’s an immersive experience that defies the laws of logic and physics. 🌀💭
 
-## 🌟 Fonctionnalités
+## 🌟 Features
 
-- Exploration de rêves imbriqués 🛌➡️💤
-- Résolution d'énigmes pour avancer dans l'histoire 🧩
-- Graphismes époustouflants et ambiance sonore immersive 🎨🎶
-- Système de niveaux pour progresser dans l'intrigue 📈
+- Exploration of nested dreams 🛌➡️💤
+- Puzzle-solving to advance the story 🧩
+- Stunning graphics and immersive sound design 🎨🎶
+- Level system to progress through the narrative 📈
 
 ## 🔧 Installation
 
-Pour installer Inception, suivez ces étapes simples :
+To install Inception, follow these simple steps:
 
-1. Clonez le dépôt :
+1. Clone the repository:
    ```bash
-   git clone https://github.com/votre-utilisateur/inception.git
+   git clone https://github.com/your-username/inception.git
    ```
-2. Accédez au répertoire du projet :
+2. Navigate to the project directory:
    ```bash
    cd inception
    ```
-3. Installez les dépendances :
+3. Install the dependencies:
    ```bash
    npm install
    ```
 
-## 🛠️ Utilisation
+## 🛠️ Usage
 
-Pour lancer le projet, utilisez la commande suivante :
+To run the project, use the following command:
 
 ```bash
 npm start
 ```
 
-Ouvrez votre navigateur à l'adresse [http://localhost:3000](http://localhost:3000) pour commencer votre voyage onirique! 🌍💻
+Open your browser at [http://localhost:3000](http://localhost:3000) to start your dream journey! 🌍💻
 
-## 🤝 Contribuer
+## 🤝 Contributing
 
-Nous accueillons les contributions! Voici comment vous pouvez aider :
+We welcome contributions! Here’s how you can help:
 
-1. Forkez le projet 🍴
-2. Créez une branche pour votre fonctionnalité :
+1. Fork the project 🍴
+2. Create a branch for your feature:
    ```bash
-   git checkout -b feature/nom-de-votre-fonctionnalité
+   git checkout -b feature/your-feature-name
    ```
-3. Commitez vos modifications :
+3. Commit your changes:
    ```bash
-   git commit -m 'Ajout d'une nouvelle fonctionnalité'
+   git commit -m 'Add a new feature'
    ```
-4. Poussez vers la branche :
+4. Push to the branch:
    ```bash
-   git push origin feature/nom-de-votre-fonctionnalité
+   git push origin feature/your-feature-name
    ```
-5. Ouvrez une pull request! 🚀
+5. Open a pull request! 🚀
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous la licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
