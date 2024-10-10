@@ -8,7 +8,6 @@ services:
     build: requirements/nginx
     ports:
       - "443:443"
-      # - "80:80"
     volumes:
       - wordpress:/var/www/wordpress
     networks:
@@ -21,8 +20,6 @@ services:
     image: wordpress
     container_name: wordpress
     build: requirements/wordpress
-    ports:
-      - "80:80"
     volumes:
       - wordpress:/var/www/wordpress
     networks:
@@ -34,8 +31,6 @@ services:
   mariadb:
     container_name: mariadb
     build: requirements/mariadb
-    ports:
-      - "80:80"
     volumes:
       - mariadb:/var/lib/mysql
     networks:
