@@ -1,19 +1,10 @@
 FROM debian:bullseye
 
-RUN	apt-get update && \
-	apt-get install -y php-fpm php-mysqli mariadb-client curl netcat && \
-	rm -rf /var/lib/apt/lists/*
+RUN	apt-get update && apt-get upgrade -y && \
+	apt-get install -y curl php php7.4-fpm php-mysql mariadb-client netcat
 
-COPY /conf/wp-config.sh /
+COPY /conf/wp-conf.sh /
 
-# ADD . /Inception/srcs/requirements/wordpress/
-# WORKDIR /wordpress
-# RUN npm install
+RUN chmod +x wp-conf.sh
 
-#exemple
-# EXPOSE 2368
-# VOLUME /wordpress
-
-RUN chmod +x wp-config.sh
-
-ENTRYPOINT ["./wp-config.sh"]
+ENTRYPOINT ["./wp-conf.sh"]

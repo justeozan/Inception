@@ -1,6 +1,6 @@
 .DEFAULT_GOAL = all
 
-P_DATA = /home/ozasahin/data/wordpress
+WP_DATA = /home/ozasahin/data/wordpress
 DB_DATA = /home/ozasahin/data/mariadb
 DOCKER_COMPOSE = docker-compose -f srcs/docker-compose.yml
 
@@ -30,17 +30,22 @@ restart:
 	$(DOCKER_COMPOSE) down
 	$(DOCKER_COMPOSE) up -d
 
-clean:
+clean: down
 	@docker stop $$(docker ps -qa) || true
 	@docker rm $$(docker ps -qa) || true
 	@docker rmi -f $$(docker images -qa) || true
 	@rm -rf $(WP_DATA) || true
 	@rm -rf $(DB_DATA) || true
 
+re: clean up
+
+prune: clean
+	@docker system prune -a --volumes -f
+
 status:
 	$(DOCKER_COMPOSE) ps
 
-.PHONY: all build up down start logs restart clean status
+.PHONY: all build up down start logs restart clean re prune status
 
 
 

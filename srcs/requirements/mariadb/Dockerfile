@@ -1,14 +1,10 @@
 FROM debian:bullseye
 
-RUN	apt-get update && \
-	apt-get install -y mariadb-server && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists/*
+RUN	apt-get update && apt-get upgrade -y && \
+	apt-get install -y mariadb-server
 
-COPY /conf/script.sh /
+COPY /conf/mdb-conf.sh /
 
-RUN chmod +x script.sh
+RUN chmod +x mdb-conf.sh
 
-ENTRYPOINT ["./script.sh"]
-
-CMD ["mysqld"]
+ENTRYPOINT ["./mdb-conf.sh"]
