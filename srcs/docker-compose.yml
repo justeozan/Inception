@@ -3,7 +3,6 @@
 services:
   
   nginx:
-    image: nginx
     container_name: nginx
     build: requirements/nginx
     ports:
@@ -17,7 +16,6 @@ services:
     restart: always
   
   wordpress:
-    image: wordpress
     container_name: wordpress
     build: requirements/wordpress
     volumes:

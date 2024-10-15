@@ -4,7 +4,7 @@ WP_DATA = /home/ozasahin/data/wordpress
 DB_DATA = /home/ozasahin/data/mariadb
 DOCKER_COMPOSE = docker-compose -f srcs/docker-compose.yml
 
-all: build up
+all: up
 
 build:
 	$(DOCKER_COMPOSE) build
