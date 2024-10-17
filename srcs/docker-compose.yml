@@ -1,7 +1,5 @@
-
-
 services:
-  
+
   nginx:
     container_name: nginx
     build: requirements/nginx
@@ -16,7 +14,7 @@ services:
     depends_on:
       - wordpress
     restart: always
-  
+
   wordpress:
     container_name: wordpress
     build: requirements/wordpress
@@ -41,6 +39,16 @@ services:
       - .env
     restart: always
 
+  website:
+    container_name: website
+    build: requirements/bonus/website
+    ports:
+      - "8080:8080"
+    networks:
+      - inception_network
+    restart:
+      always
+
 volumes:
   wordpress:
     name: wordpress_data
@@ -56,7 +64,7 @@ volumes:
       type: none
       device: /home/ozasahin/data/mariadb
       o: bind
-    
+
 networks:
   inception_network:
     driver: bridge

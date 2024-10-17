@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Portfolio</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen">
+    <link type="text/css" rel="stylesheet" href="../css/style.css"  media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="../projects/python.html">Python</a></li>
+      <li><a href="../projects/inovations.html">Inovations</a></li>
+      <li><a href="../projects/trophy.html">4L Trophy</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+      <li><a href="../projects/python.html">Home</a></li>
+      <li><a href="../projects/inovations.html">Ozan</a></li>
+      <li><a href="../projects/trophy.html">Projects</a></li>
+    </ul>
+    <nav class="tranparent">
+      <div class="row nav-wrapper tranparent">
+        <div class="col s4 m4 l2 tranparent">
+          <h1 id="title" class="animate__animated animate__bounce">Portfolio</h1>
+        </div>
+        <div id="list" class="col s4 m4 l8 tranparent">
+          <ul class="hide-on-large-only tranparent">
+            <li><a class="dropdown-trigger" data-target="dropdown2" href="#!">More<i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down tranparent">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../presentation/ozan.html">Ozan</a></li>
+            <li><a href="../presentation/amandine.html">Amandine</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Projects<i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+        </div>
+        <div class="col s4 m4 l2">
+          <div class="switch">
+            <label>
+              <i class="material-icons">brightness_5</i>
+              <input onclick="myFunction()" type="checkbox">
+              <span class="lever"></span>
+              <i class="material-icons">brightness_2</i>
+            </label>
+          </div>
+        </div>
+      </div>
+    </nav>
+      
+
+    <!-- SECTION PRINCIPALE ----------------------------------------->
+
+    <div class="parallax-container">
+      <div class="parallax"><img id="fond1" src="../img/fond13.jpg" alt="Fond"></div>
+    </div>
+    
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="container">
+        <p id="about_me1" class="animate__animated animate__pulse">Trophy</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="container">
+        <div data-aos="fade-up">
+          <p id="about_me1" class="animate__animated animate__pulse">Inovations</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE PRINCIPALE -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="animate__animated animate__bounceInLeft project-card col s12 m6 l6">
+          <img src="../img/1.jpg">
+        </div>
+        <div class="animate__animated animate__bounceInRight project-card col s12 m6 l6">
+          <img src="../img/inov4.jpg">
+        </div>       
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="container">
+        <div class="row">
+
+          <!-- COLONNE 1 -->
+          <div class="col s12 m4 l4">
+
+            <div class="container">
+              <p class="name">Amandine VIALLE-GUERIN</p>
+              <p>Student at GUARDIA</p>
+            </div>
+
+            <div class="container">
+              <p class="name">Ozan SAHIN</p>
+              <p>Student at GUARDIA</p>
+            </div>
+
+          </div>
+          
+          <!-- COLONNE 2 -->
+          <div class="col s12 m5 l5 container">
+            <ul id="footer-list">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../presentation/ozan.html">Ozan</a></li>
+              <li><a href="../presentation/amandine.html">Amandine</a></li>
+              <li><a href="../projects/python.html">Python</a></li>
+              <li><a href="../projects/inovations.html">Inovations</a></li>
+              <li><a href="../projects/trophy.html">4L Trophy</a></li>
+            </ul>
+          </div>
+
+          <!-- COLONNE 3 -->
+          <div class="col s12 m3 l3 container">
+            <p id="reverse" onclick="reverse()">Reverse</p>
+          </div>
+
+        </div>
+
+        <div id="copyright" class="container">
+          <p>© juste_ozan & avg38. All Right Reserved</p>
+        </div>
+
+      </div>
+    </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script src="../js/script.js"></script>
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/ab22e0bef1.js" crossorigin="anonymous"></script>
+  </body>
+</html>
