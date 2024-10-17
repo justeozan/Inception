@@ -1,73 +1,82 @@
-# Inception 🚀💤
+# 🚀 Projet Inception - 42
 
-Welcome to **Inception**! This project is a fascinating exploration of dream manipulation and realities. Get ready to dive into a world of nested dreams! 🌌✨
+## 📚 Description du projet
 
-## 📚 Table of Contents
+Inception est un projet de l'école 42 qui vise à vous familiariser avec l'utilisation de Docker et la mise en place d'une infrastructure multi-conteneurs. L'objectif principal est de créer un petit ensemble de services web en utilisant Docker Compose.
 
-- [Description](#description)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## 🛠️ Technologies utilisées
 
-## 📖 Description
+- Docker 🐳
+- Docker Compose
+- NGINX 🌐
+- WordPress
+- MariaDB 💾
+- PHP-FPM
 
-**Inception** is a project that allows users to dive into complex dreams, explore dreamlike landscapes, and solve puzzles. It’s an immersive experience that defies the laws of logic and physics. 🌀💭
+## 🏗️ Structure du projet
 
-## 🌟 Features
-
-- Exploration of nested dreams 🛌➡️💤
-- Puzzle-solving to advance the story 🧩
-- Stunning graphics and immersive sound design 🎨🎶
-- Level system to progress through the narrative 📈
-
-## 🔧 Installation
-
-To install Inception, follow these simple steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/inception.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd inception
-   ```
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
-
-## 🛠️ Usage
-
-To run the project, use the following command:
-
-```bash
-npm start
+```
+inception/
+│
+├── srcs/
+│   ├── docker-compose.yml
+│   ├── .env
+│   │
+│   └── requirements/
+│       ├── nginx/
+│       │   ├── Dockerfile
+│       │   └── conf/
+│       ├── wordpress/
+│       │   ├── Dockerfile
+│       │   └── conf/
+│       └── mariadb/
+│           ├── Dockerfile
+│           └── conf/
+│
+├── Makefile
+└── README.md
 ```
 
-Open your browser at [http://localhost:3000](http://localhost:3000) to start your dream journey! 🌍💻
+## 🚀 Installation et lancement
 
-## 🤝 Contributing
-
-We welcome contributions! Here’s how you can help:
-
-1. Fork the project 🍴
-2. Create a branch for your feature:
-   ```bash
-   git checkout -b feature/your-feature-name
+1. Clonez le dépôt :
    ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add a new feature'
+   git clone https://github.com/votre-username/inception.git
+   cd inception
    ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/your-feature-name
+
+2. Configurez les variables d'environnement dans le fichier `srcs/.env`
+
+3. Lancez le projet avec :
    ```
-5. Open a pull request! 🚀
+   make up
+   ```
 
-## 📄 License
+4. Pour arrêter le projet :
+   ```
+   make down
+   ```
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+## 🔧 Configuration
+
+- NGINX : Serveur web principal, configuré pour rediriger vers WordPress
+- WordPress : CMS installé avec PHP-FPM
+- MariaDB : Base de données pour WordPress
+
+## 📝 Commandes utiles
+
+- `make up` : Démarre les conteneurs
+- `make down` : Arrête les conteneurs
+- `make prune` : Nettoie les volumes et les images Docker
+
+## 🤝 Contribution
+
+Les pull requests sont les bienvenues. Pour les changements majeurs, veuillez d'abord ouvrir une issue pour discuter de ce que vous aimeriez changer.
+
+## 📜 Licence
+
+Ce projet est réalisé dans le cadre du cursus de l'école 42 et est soumis à leurs conditions d'utilisation.
+
+## ✨ Auteur
+
+Ozan - [@justeozan](https://github.com/justeozan)

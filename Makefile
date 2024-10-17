@@ -31,16 +31,17 @@ restart:
 	$(DOCKER_COMPOSE) up -d
 
 clean: down
-	@docker stop $$(docker ps -qa) || true
-	@docker rm $$(docker ps -qa) || true
-	@docker rmi -f $$(docker images -qa) || true
-	@rm -rf $(WP_DATA) || true
-	@rm -rf $(DB_DATA) || true
-
-re: clean up
+	docker stop $$(docker ps -qa) || true
+	sudo docker rm $$(docker ps -qa) || true
+	sudo docker rmi -f $$(docker images -qa) || true
+	rm -rf $(WP_DATA) || true
+	rm -rf $(DB_DATA) || true
 
 prune: clean
-	@docker system prune -a --volumes -f
+	sudo docker system prune -a --volumes -f
+	sudo docker volume rm mariadb_data wordpress_data
+
+re: clean up
 
 status:
 	$(DOCKER_COMPOSE) ps

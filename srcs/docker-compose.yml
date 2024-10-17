@@ -11,6 +11,8 @@ services:
       - wordpress:/var/www/wordpress
     networks:
       - inception_network
+    env_file:
+      - .env
     depends_on:
       - wordpress
     restart: always
@@ -24,6 +26,8 @@ services:
       - inception_network
     env_file:
       - .env
+    depends_on:
+      - mariadb
     restart: always
     
   mariadb:
