@@ -30,15 +30,50 @@ if [ $(date +%s) -ge $end_time ]; then
 	echo "[=====MARIADB IS NOT RESPONDING====="]
 fi
 
+## [Redis]
+
+# Create a temporary file with the lines to be inserted
+cat <<EOL > redis-config.tmp
+define('WP_CACHE_KEY_SALT', 'bpoyet.42.fr');
+define('WP_REDIS_HOST', 'redis');
+define('WP_REDIS_PORT', 6379);
+define('WP_CACHE', true);
+define('WP_REDIS_DATABASE', 0);
+define('WP_REDIS_TIMEOUT', 1);
+define('WP_REDIS_READ_TIMEOUT', 1);
+EOL
+
+# Insert the lines from the temporary file into the target file at line 50
+sed -i '85r redis-config.tmp' $WP_CONFIG_FINAL
+rm redis-config.tmp
+
+## [Wordpress]
+
 # Downloads the WordPress core files
 wp core download --allow-root
+
 # Configures the wp-config.php file with the database information
-wp core config --dbhost=mariadb:3306 --dbname="$MYSQL_DB" --dbuser="$MYSQL_USER" --dbpass="$MYSQL_PASSWORD" --allow-root
+wp core config	--dbhost=mariadb:3306 \
+				--dbname="$MYSQL_DB" \
+				--dbuser="$MYSQL_USER" \
+				--dbpass="$MYSQL_PASSWORD" \
+				--allow-root
+
 # Installs WordPress with the provided URL, site title, and admin credentials
-wp core install --url="$DOMAIN_NAME" --title="$WP_TITLE" --admin_user="$WP_ADMIN_N" --admin_password="$WP_ADMIN_P" --admin_email="$WP_ADMIN_E" --allow-root
+wp core install	--url="$DOMAIN_NAME" \
+				--title="$WP_TITLE" \
+				--admin_user="$WP_ADMIN_N" \
+				--admin_password="$WP_ADMIN_P" \
+				--admin_email="$WP_ADMIN_E" \
+				--allow-root
+
 # Creates an additional administrator user
-wp user create "$WP_U_NAME" "$WP_U_EMAIL" --user_pass="$WP_U_PASS" --role=administrator --allow-root
+wp user create	"$WP_U_NAME" "$WP_U_EMAIL" \
+				--user_pass="$WP_U_PASS" \
+				--role=administrator \
+				--allow-root
 
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
 mkdir -p /run/php
-/usr/sbin/php-fpm7.4 -F
+# /usr/sbin/php-fpm7.4 -F
+exec php-fpm7.4 -F
