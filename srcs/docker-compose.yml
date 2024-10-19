@@ -44,6 +44,8 @@ services:
     build: requirements/bonus/website
     ports:
       - "8000:8000"
+    env_file:
+      - .env
     networks:
       - inception_network
     restart: always
@@ -60,14 +62,14 @@ services:
   #   restart:
   #     always
 
-  redis:
-    container_name: redis
-    build: requirements/bonus/redis
-    networks:
-      - inception_network
-    ports:
-      - '6379:6379'
-    restart: always
+  # redis:
+  #   container_name: redis
+  #   build: requirements/bonus/redis
+  #   networks:
+  #     - inception_network
+  #   ports:
+  #     - '6379:6379'
+  #   restart: always
 
 
 

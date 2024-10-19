@@ -33,19 +33,19 @@ fi
 ## [Redis]
 
 # Create a temporary file with the lines to be inserted
-cat <<EOL > redis-config.tmp
-define('WP_CACHE_KEY_SALT', 'bpoyet.42.fr');
-define('WP_REDIS_HOST', 'redis');
-define('WP_REDIS_PORT', 6379);
-define('WP_CACHE', true);
-define('WP_REDIS_DATABASE', 0);
-define('WP_REDIS_TIMEOUT', 1);
-define('WP_REDIS_READ_TIMEOUT', 1);
-EOL
+# cat <<EOL > redis-config.tmp
+# define('WP_CACHE_KEY_SALT', 'bpoyet.42.fr');
+# define('WP_REDIS_HOST', 'redis');
+# define('WP_REDIS_PORT', 6379);
+# define('WP_CACHE', true);
+# define('WP_REDIS_DATABASE', 0);
+# define('WP_REDIS_TIMEOUT', 1);
+# define('WP_REDIS_READ_TIMEOUT', 1);
+# EOL
 
-# Insert the lines from the temporary file into the target file at line 50
-sed -i '85r redis-config.tmp' $WP_CONFIG_FINAL
-rm redis-config.tmp
+# # Insert the lines from the temporary file into the target file at line 50
+# sed -i '85r redis-config.tmp' $WP_CONFIG_FINAL
+# rm redis-config.tmp
 
 ## [Wordpress]
 
