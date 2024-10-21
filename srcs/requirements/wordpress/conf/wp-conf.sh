@@ -18,36 +18,17 @@ end_time=$((start_time + 20))
 while [ $(date +%s) -lt $end_time ]; do
 	ping_mariadb_container
 	if [ $? -eq 0 ]; then
-		echo "[=====MARIADB IS UP AND RUNNING====="]
+		echo "[-----MARIADB IS UP AND RUNNING-----"]
 		break
 	else
-		echo "[=====WAITING FOR MARIADB====="]
+		echo "[-----WAITING FOR MARIADB-----"]
 		sleep 1
 	fi
 done
 
 if [ $(date +%s) -ge $end_time ]; then
-	echo "[=====MARIADB IS NOT RESPONDING====="]
+	echo "[-----MARIADB IS NOT RESPONDING-----"]
 fi
-
-## [Redis]
-
-# Create a temporary file with the lines to be inserted
-# cat <<EOL > redis-config.tmp
-# define('WP_CACHE_KEY_SALT', 'bpoyet.42.fr');
-# define('WP_REDIS_HOST', 'redis');
-# define('WP_REDIS_PORT', 6379);
-# define('WP_CACHE', true);
-# define('WP_REDIS_DATABASE', 0);
-# define('WP_REDIS_TIMEOUT', 1);
-# define('WP_REDIS_READ_TIMEOUT', 1);
-# EOL
-
-# # Insert the lines from the temporary file into the target file at line 50
-# sed -i '85r redis-config.tmp' $WP_CONFIG_FINAL
-# rm redis-config.tmp
-
-## [Wordpress]
 
 # Downloads the WordPress core files
 wp core download --allow-root
@@ -75,5 +56,4 @@ wp user create	"$WP_U_NAME" "$WP_U_EMAIL" \
 
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
 mkdir -p /run/php
-# /usr/sbin/php-fpm7.4 -F
 exec php-fpm7.4 -F

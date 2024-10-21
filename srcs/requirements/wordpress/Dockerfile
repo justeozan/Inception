@@ -17,9 +17,4 @@ COPY /conf/wp-conf.sh /
 
 RUN chmod +x wp-conf.sh
 
-# Install Redis Object Cache plugin
-# RUN curl -o /tmp/redis-cache.zip -fSL "https://downloads.wordpress.org/plugin/redis-cache.latest-stable.zip" && \
-# 	unzip /tmp/redis-cache.zip -d /var/www/html/wp-content/plugins/ && \
-# 	rm /tmp/redis-cache.zip
-
 ENTRYPOINT ["./wp-conf.sh"]

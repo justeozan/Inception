@@ -49,29 +49,6 @@ services:
     networks:
       - inception_network
     restart: always
-  
-  # adminer:
-  #   container_name: adminer
-  #   build: requirements/bonus/adminer
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - inception_network
-  #   depends_on:
-  #     - mariadb
-  #   restart:
-  #     always
-
-  # redis:
-  #   container_name: redis
-  #   build: requirements/bonus/redis
-  #   networks:
-  #     - inception_network
-  #   ports:
-  #     - '6379:6379'
-  #   restart: always
-
-
 
 volumes:
   wordpress:
